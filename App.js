@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import { View, Text, Button, StyleSheet, StatusBar} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Screen1 from "./src/screens/Screen1";
-import Lifecycle from "./src/screens/Lifecycle";
+import Components from "./src/Components/Components";
+import Lifecycle from "./src/Screens/Lifecycle";
+import FetchApi from "./src/Api/FetchApi";
+
 
 const Separator = () => (
   <View style={styles.separatorbtn} />
@@ -27,9 +29,16 @@ function HomeScreen({ navigation }) {
         // setTimeout(()=> {
         //  navigation.navigate('Screen1', { name: 'Screen1' });
         // }, 2000);
-        navigation.navigate('Screen1', { name: 'Screen1' });
+        navigation.navigate('Components', { name: 'Components' });
       }}
     />
+
+<Separator></Separator>
+
+{ <Button
+        title="Fetch API Call"
+        onPress={() => navigation.navigate('FetchApi')}
+      /> }
     </View>
   );
 }
@@ -42,10 +51,9 @@ function App() {
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Details" component={DetailsScreen} />
-        <Stack.Screen name="Screen1" component={Screen1} />
+        <Stack.Screen name="Components" component={Components} />
         <Stack.Screen name="Lifecycle" component={Lifecycle} />
-
-
+        <Stack.Screen name="FetchApi" component={FetchApi} />
       </Stack.Navigator>
     </NavigationContainer>
   );
