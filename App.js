@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Components from "./src/Components/Components";
 import Lifecycle from "./src/Screens/Lifecycle";
 import FetchApi from "./src/Api/FetchApi";
+import { connect } from "react-redux";
 
 
 const Separator = () => (
@@ -69,8 +70,18 @@ function DetailsScreen() {
 }
 
 
+const mapStateToProps = state => {{
 
-export default App;
+}};
+
+const mapDispatchToProps = {
+
+};
+
+
+export default connect(
+  mapStateToProps, mapDispatchToProps
+)(App);
 
 const styles = StyleSheet.create({
   containerList: {
