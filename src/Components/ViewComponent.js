@@ -6,7 +6,7 @@ const Separator = () => (
 );
 
 
-class Components extends Component {
+class ViewComponent extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -35,7 +35,7 @@ class Components extends Component {
   }
 }
 
-export default Components;
+export default ViewComponent;
 
 const styles = StyleSheet.create({
   baseText: {
