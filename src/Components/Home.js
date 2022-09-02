@@ -7,6 +7,11 @@ import { Provider } from "react-redux";
 import ViewComponent from "./ViewComponent";
 import FetchApi from "../Api/FetchApi";
 import Lifecycle from "./Lifecycle";
+import store from "../Services/rootReducer";
+import { toggleFlag } from "../Services/Home/action";
+
+
+
 const Separator = () => (
   <View style={styles.separatorbtn} />
 );
@@ -51,14 +56,13 @@ function Home() {
   return (
     <NavigationContainer >
       <Stack.Navigator initialRouteName="HomeScreen">
-        {/* <Stack.Screen name="HomeScreen" component={HomeScreen} /> */}
+        <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="Details" component={DetailsScreen} />
         <Stack.Screen name="ViewComponent" component={ViewComponent} />
         <Stack.Screen name="Lifecycle" component={Lifecycle} />
         <Stack.Screen name="FetchApi" component={FetchApi} />
       </Stack.Navigator>
-    </NavigationContainer>
-  
+    </NavigationContainer>  
   );
 }
 
@@ -74,10 +78,13 @@ function DetailsScreen() {
 
 const mapStateToProps = state => {{
 
+  flag: state.homeReducer.homeFlag
+
 }};
+    
 
 const mapDispatchToProps = {
-
+    toggleHomeFlag : toggleFlag,
 };
 
 
